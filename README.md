@@ -1,6 +1,9 @@
 pyroot-tutorials
 ================
 
+[![Build Status](https://travis-ci.org/rootpy/pyroot-tutorials.png)](https://travis-ci.org/rootpy/pyroot-tutorials)
+
+
 [PyROOT](http://root.cern.ch/drupal/content/pyroot) is a [Python](http://en.wikipedia.org/wiki/Python_(programming_language)) programming language extension module that allows the user to interact with any [ROOT](http://root.cern.ch) class from the Python interpreter.
 The [``rootpy``](https://github.com/rootpy/rootpy) and [``root_numpy``](https://github.com/rootpy/root_numpy) projects build on top of ``PyROOT`` to make working with ROOT from Python more user-friendly and faster, they come with their own [webpage](http://rootpy.org), which contains links to tutorials and reference documentation.
 
