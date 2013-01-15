@@ -104,15 +104,15 @@ mc.SetLeftSideTailFraction(0.5)  ## find a "central" interval
 mcInt = mc.GetInterval()  ## that was easy
 
 ## Get Lower and Upper limits from Profile Calculator
-print "Profile lower limit on s = ", lrint.LowerLimit(s)
-print "Profile upper limit on s = ", lrint.UpperLimit(s)
+print("Profile lower limit on s = {}".format(lrint.LowerLimit(s)))
+print("Profile upper limit on s = {}".format(lrint.UpperLimit(s)))
 
 ## Get Lower and Upper limits from FeldmanCousins with profile construction
 if (fcint != None):
     fcul = fcint.UpperLimit(s)
     fcll = fcint.LowerLimit(s)
-    print "FC lower limit on s = ", fcll
-    print "FC upper limit on s = ", fcul
+    print("FC lower limit on s = {}".format(fcll))
+    print("FC upper limit on s = {}".format(fcul))
     fcllLine = ROOT.TLine(fcll, 0, fcll, 1)
     fculLine = ROOT.TLine(fcul, 0, fcul, 1)
     fcllLine.SetLineColor(ROOT.kRed)
@@ -130,9 +130,9 @@ mcPlot.Draw("same")
 
 mcul = mcInt.UpperLimit(s)
 mcll = mcInt.LowerLimit(s)
-print "MCMC lower limit on s = ", mcll
-print "MCMC upper limit on s = ", mcul
-print "MCMC Actual confidence level: ", mcInt.GetActualConfidenceLevel()
+print("MCMC lower limit on s = {}".format(mcll))
+print("MCMC upper limit on s = {}".format(mcul))
+print("MCMC Actual confidence level: {}".format(mcInt.GetActualConfidenceLevel()))
 
 ## 3-d plot of the parameter points
 dataCanvas.cd(2)
@@ -140,7 +140,7 @@ dataCanvas.cd(2)
 chainData = mcInt.GetChainAsDataSet()
 
 assert(chainData)
-print "plotting the chain data - nentries = ", chainData.numEntries()
+print("plotting the chain data - nentries = {}".format(chainData.numEntries()))
 chain = ROOT.RooStats.GetAsTTree("chainTreeData","chainTreeData", chainData)
 assert(chain)
 chain.SetMarkerStyle(6)
@@ -151,7 +151,8 @@ chain.Draw("s:ratioSigEff:ratioBkgEff","nll_MarkovChain_local_","box") ## 3-d bo
 ## the points used in the profile construction
 parScanData = fc.GetPointsToScan()
 assert(parScanData)
-print "plotting the scanned points used in the frequentist construction - npoints = ", parScanData.numEntries()
+print("plotting the scanned points used in the frequentist construction - "
+      "npoints = {}".format(parScanData.numEntries()))
 ## getting the tree and drawing it -crashes (very strange....)
 ## TTree* parameterScan =  RooStats::GetAsTTree("parScanTreeData","parScanTreeData",*parScanData)
 ## assert(parameterScan)
@@ -170,4 +171,3 @@ gr.Draw("P SAME")
 ### print timing info
 t.Stop()
 t.Print()
-
